@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .divrow {
+            height = auto;
+            width: 100%
+        }
+        .divtile {
+            width:0%
+        }
+    </style>
+</head>
+<body>
+    <p>{{step}}</p>
+    <script type="text/javascript">
+        var board = {{ board | safe }};
+        //document.write("&#129409");
+        //document.write(board[0][0]);
+        for (var i = 0; i < board.length; i++) {
+            document.write("<div class=\"divrow\">")
+            for (var j = 0; j < board[0].length; j++)
+            {
+
+                document.write(`<span id=\"${i},${j}\">`)
+                switch (board[i][j]) {
+                    case "visited":
+                        document.write("&#127998");
+                        break;
+                    case "unvisited":
+                        document.write("&#127995");
+                        break;
+                    case "wall":
+                        document.write("&#128998");
+                        break;
+                    case "picobot":
+                        document.write("&#128000");
+                        break;
+                }
+                document.write("</span>");
+            }
+            document.write("</div>");
+        }
+        
+            
+    </script>
+    <form method="post">
+        <input type="submit" value="Step"/>
+    </form>
+    <form method="post">
+        <input type="submit" value="Go" />
+    </form>
+    
+</body>
+</html>

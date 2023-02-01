@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .div1 {
+            background-color: blue;
+            height = auto;
+            width: 100%
+        }
+    </style>
+</head>
+<body>
+    <form method="post">
+        <script type="text/javascript">
+            for (var i = 0; i < {{ y }}; i++) {
+                document.write("<div class=\"row\">");
+                for (var j = 0; j < {{ x }}; j++) {
+                document.write(`<input type=\"checkbox\" name=\"${j},${i}\">`);
+            }
+            document.write("</div>");
+            }
+        </script>
+        <label>Rules:</label>
+        <textarea id="rules" name="rules" rows="20" cols="60">
+# 
+# Hashtag lines are optional comments
+#
+
+# if in state 0
+
+0 x*** -> N 0   # nothing N? Go N. (stay in state 0)
+
+0 N*** -> W 1   # wall to N? Go W. (change to state 1)
+
+
+# if in state 1
+
+1 ***x -> S 1   # nothing S? Go S. (stay in state 1)
+
+1 ***S -> X 0   # wall to S? Don't move.(change to state 0)
+</textarea>
+        <input type="submit" value="run!" />
+    </form>
+</body>
+</html>
