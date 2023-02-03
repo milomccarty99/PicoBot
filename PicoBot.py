@@ -39,7 +39,7 @@ def run():
 def runstep( step):
     if(request.method == 'POST'):
         return redirect(url_for('runstep',step=int(step)+1))
-    textInterp = TextInterpreter.StateMachine(pbrules.find()[0]['rules'], 10,10)
+    textInterp = TextInterpreter.StateMachine(pbrules.find()[0]['rules'], 24,24)
     for i in range(0,int(step)):
         textInterp.stepforward()
 

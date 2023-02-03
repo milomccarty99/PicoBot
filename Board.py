@@ -35,7 +35,6 @@ class Board:
 
     def getSurr(self):
         result = list("xxxx")
-        print(str(self.xpos) + "," + str(self.ypos))
         if self.ypos <= 0 or (self.map[self.xpos][self.ypos-1] == "wall"):
             result[0] = 'N'
         elif self.xpos + 1 >= self.xsize or (self.map[self.xpos+1][self.ypos]=="wall"):
@@ -44,7 +43,6 @@ class Board:
             result[2] = 'W'
         elif self.ypos + 1 >= self.ysize or (self.map[self.xpos][self.ypos+1] == "wall"):
             result[3] = 'S'
-        print(str("".join(result)))
         return "".join(result)
 
 

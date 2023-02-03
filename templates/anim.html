@@ -17,9 +17,9 @@
         var board = {{ board | safe }};
         //document.write("&#129409");
         //document.write(board[0][0]);
-        for (var i = 0; i < board.length; i++) {
+        for (var i = 0; i < board.length; i++) { //y traversal
             document.write("<div class=\"divrow\">")
-            for (var j = 0; j < board[0].length; j++)
+            for (var j = 0; j < board[0].length; j++) //x traversal
             {
 
                 document.write(`<span style="display: inline-block;width:20px;"id=\"${i},${j}\">`)
@@ -50,6 +50,10 @@
     <form method="post">
         <input type="submit" value="Go" />
     </form>
-    
+    <form name="autoSubmit" id="autoSubmit" method="post">
+        <script>
+            setInterval(document.autoSubmit.submit(),0)
+        </script>
+    </form>
 </body>
 </html>
